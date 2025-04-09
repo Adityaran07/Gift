@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 1st Anniversary ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      padding: 50px;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    h1 {
+      color: #fff0f5;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    button {
+      background-color: #ff4d88;
+      color: white;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px #00000050;
+      margin-top: 20px;
+    }
+
+    .letter {
+      display: none;
+      margin-top: 30px;
+      white-space: pre-wrap;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      color: #333;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow">
+    <img src="img1.jpg" class="active">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <!-- Add more images if you want -->
+  </div>
+
+  <audio autoplay loop>
+    <source src="your-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <h1>Hey Love 💖</h1>
+  <p>Click the button below to read something special from my heart.</p>
+  <button onclick="showLetter()">Open Love Letter 💌</button>
+
+  <div class="letter" id="loveLetter">
+    <p>
+      My Dearest Love,
+
+      As we celebrate our first anniversary, I just want to say—
+      You've filled my world with colors I never knew existed.
+      Every smile of yours makes my day brighter,
+      And every moment with you feels like a dream I never want to end.
+
+      Thank you for loving me, understanding me,
+      And standing by my side through everything.
+
+      Here's to us, to our memories, and the many more we'll create together 💖
+
+      Forever yours,
+      Aditya
+    </p>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById("loveLetter").style.display = "block";
+    }
+
+    // Slideshow logic
+    let slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000); // Change image every 4 seconds
+  </script>
+
+</body>
+</html>
